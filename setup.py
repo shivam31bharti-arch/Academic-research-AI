@@ -19,13 +19,22 @@ def get_requirements(file_path:str)->List[str]:
     
     return requirements
 
+# Read long description safely
+long_description = ''
+try:
+    if os.path.exists('README.md'):
+        with open('README.md', 'r', encoding='utf-8') as f:
+            long_description = f.read()
+except Exception:
+    long_description = 'Automated Academic Research Paper Classification System using NLP and AutoML'
+
 setup(
 name='academic-research-ai',
 version='1.0.0',
 author='Shivam Bharti',
 author_email='shivam.bharti@example.com',
 description='Automated Academic Research Paper Classification System using NLP and AutoML',
-long_description=open('README.md').read() if os.path.exists('README.md') else '',
+long_description=long_description,
 long_description_content_type='text/markdown',
 url='https://github.com/shivam31bharti-arch/Academic-research-AI',
 packages=find_packages(),
