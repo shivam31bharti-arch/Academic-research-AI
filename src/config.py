@@ -70,9 +70,9 @@ class DataTransformationConfig:
     
     # Text preprocessing
     lowercase: bool = True
-    remove_stopwords: bool = True
+    remove_stopwords: bool = False  # TF-IDF handles this better
     remove_numbers: bool = False
-    remove_punctuation: bool = True
+    remove_punctuation: bool = False  # Keep punctuation for better context
     
     # Feature selection
     use_feature_selection: bool = True

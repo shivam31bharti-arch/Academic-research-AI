@@ -78,18 +78,12 @@ class DataTransformation:
             if self.config.remove_numbers:
                 text = re.sub(r'\d+', '', text)
             
-            # Remove punctuation if configured
-            if self.config.remove_punctuation:
-                text = text.translate(str.maketrans('', '', string.punctuation))
-            
             # Remove extra whitespace
             text = ' '.join(text.split())
             
-            # Remove stopwords if configured
-            if self.config.remove_stopwords:
-                tokens = word_tokenize(text)
-                tokens = [word for word in tokens if word not in self.stop_words]
-                text = ' '.join(tokens)
+            # NOTE: We don't remove stopwords here because TF-IDF vectorizer
+            # handles it better with its built-in stopwords parameter
+            # Removing them manually can lead to empty vocabulary
             
             return text
             
