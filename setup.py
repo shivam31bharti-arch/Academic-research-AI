@@ -2,6 +2,7 @@
 
 from setuptools import find_packages,setup
 from typing import List
+import os
 
 HYPEN_E_DOT='-e .'
 def get_requirements(file_path:str)->List[str]:
@@ -19,11 +20,23 @@ def get_requirements(file_path:str)->List[str]:
     return requirements
 
 setup(
-name='mlproject',
-version='0.0.1',
-author='Krish',
-author_email='@gmail.com',
+name='academic-research-ai',
+version='1.0.0',
+author='Shivam Bharti',
+author_email='shivam.bharti@example.com',
+description='Automated Academic Research Paper Classification System using NLP and AutoML',
+long_description=open('README.md').read() if os.path.exists('README.md') else '',
+long_description_content_type='text/markdown',
+url='https://github.com/shivam31bharti-arch/Academic-research-AI',
 packages=find_packages(),
-install_requires=get_requirements('requirements.txt')
-
+install_requires=get_requirements('requirements.txt'),
+python_requires='>=3.8',
+classifiers=[
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Science/Research',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+],
 )
